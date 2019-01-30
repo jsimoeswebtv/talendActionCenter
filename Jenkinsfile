@@ -4,7 +4,10 @@ pipeline {
     stage('get code') {
       steps {
         echo 'hello world'
-        listAWSAccounts()
+        withAWS(credentials: 'cdeawscred') {
+          s3FindFiles(bucket: 'tt', onlyFiles: true, path: '/')
+        }
+
       }
     }
   }
