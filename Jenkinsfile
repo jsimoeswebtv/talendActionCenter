@@ -4,6 +4,7 @@ pipeline {
     stage('get code') {
       steps {
         echo 'hello world'
+        listAWSAccounts()
       }
     }
   }
